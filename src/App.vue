@@ -1,32 +1,42 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <NavBar />
+    <v-main style="background-color: #ffebc1;"> <router-view /> </v-main>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import NavBar from './components/App/NavBar'
+
+export default {
+  name: 'App',
+
+  components: {
+    NavBar,
+  },
+
+  data: () => ({
+    //
+  }),
+}
+</script>
+
+<style>
+::-webkit-scrollbar {
+  width: 1px;
+  height: 4px;
 }
 
-#nav {
-  padding: 30px;
+::-webkit-scrollbar-track {
+  background: transparent;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+::-webkit-scrollbar-thumb {
+  background: #fdb42a;
+  border-radius: 1px;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: transparent;
 }
 </style>
